@@ -50,14 +50,6 @@ export default class RichTextToolbar extends Component {
     };
   }
 
-  componentDidReceiveProps(newProps) {
-    const actions = newProps.actions ? newProps.actions : defaultActions;
-    this.setState({
-      actions,
-      ds: this.state.ds.cloneWithRows(this.getRows(actions, this.state.selectedItems))
-    });
-  }
-
   getRows(actions, selectedItems) {
     return actions.map((action) => {return {action, selected: selectedItems.includes(action)};});
   }
